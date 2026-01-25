@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veerapandian V R | ML & Data Science Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1f24;
+      --card: rgba(15, 42, 50, 0.75);
+      --text: #e6f1f5;
+      --muted: #9fb3bb;
+      --accent: linear-gradient(135deg, #2dd4bf, #38bdf8);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: radial-gradient(circle at top, #102a32, #020617);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: #38bdf8; text-decoration: none; }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    /* ---------- HERO ---------- */
+    header {
+      padding: 4rem 0 3rem;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin-top: .75rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: .6rem 1.2rem;
+      border-radius: 10px;
+      font-size: .9rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+      transition: all .25s ease;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #020617;
+      font-weight: 600;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+
+    section { margin-top: 4.5rem; }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* ---------- CARDS ---------- */
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1.4rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .skills p { color: var(--muted); margin-top: .3rem; }
+
+    /* ---------- PROJECTS ---------- */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-actions {
+      margin-top: .9rem;
+      display: flex;
+      gap: .6rem;
+    }
+
+    .tags span {
+      display: inline-block;
+      margin-top: .5rem;
+      margin-right: .4rem;
+      font-size: .75rem;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid var(--border);
+      color: #7dd3fc;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      margin: 5rem 0 2rem;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <header>
+      <h1>Veerapandian V R</h1>
+      <p>Final-year B.Tech CSE (Data Science) student focused on Machine Learning, Computer Vision, and backend systems. Experienced in building real-time ML solutions and scalable applications.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="resume.pdf" target="_blank">Resume</a>
+      </div>
+    </header>
+
+    <!-- SKILLS -->
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="card"><strong>Programming</strong><p>Python, SQL</p></div>
+        <div class="card"><strong>Machine Learning</strong><p>Scikit‑learn, Model Evaluation, Classification & Regression</p></div>
+        <div class="card"><strong>Computer Vision</strong><p>YOLOv8, OpenCV, Real‑time Inference</p></div>
+        <div class="card"><strong>Backend & Tools</strong><p>Spring Boot, REST APIs, MySQL, SQLite, Git</p></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <div class="card">
+          <h3>AI‑Driven No‑Parking Violation Detection & Fine Management System</h3>
+          <p>Built an AI-based system to automatically detect no‑parking violations using computer vision and manage fine generation workflows. Designed to reduce manual monitoring and improve traffic compliance.</p>
+          <div class="tags">
+            <span>Python</span><span>Computer Vision</span><span>AI</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn" href="https://github.com/Veerapandian16/AI-Driven-No-Parking-Violation-Detection-Fine-Management-System" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Face Recognition System using OpenCV</h3>
+          <p>Implemented a real-time face recognition system using OpenCV to identify known individuals from live video streams, focusing on accuracy and efficient frame processing.</p>
+          <div class="tags">
+            <span>Python</span><span>OpenCV</span><span>Computer Vision</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn" href="https://github.com/Veerapandian16/Face-Recognition-System-using-OpenCV" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Bike Booking System</h3>
+          <p>Developed a full‑stack bike rental platform with RESTful APIs for user authentication and real‑time bookings, ensuring scalable backend design and smooth user experience.</p>
+          <div class="tags">
+            <span>Spring Boot</span><span>React</span><span>MySQL</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn" href="https://github.com/Veerapandian16/Bike-Booking-System" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Taxi Booking System</h3>
+          <p>Designed and developed a Python‑based taxi booking application featuring secure authentication, dynamic fare calculation, and persistent data storage using SQLite.</p>
+          <div class="tags">
+            <span>Python</span><span>SQLite</span><span>Backend</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn" href="https://github.com/Veerapandian16/Taxi_Booking_System" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Instant Dictionary</h3>
+          <p>Built a lightweight dictionary application that provides instant word meanings with fast lookup, focusing on simplicity, responsiveness, and clean logic.</p>
+          <div class="tags">
+            <span>Python</span><span>Data Structures</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn" href="https://github.com/Veerapandian16/Instant-Dictionary" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div class="card"><strong>Email</strong><p><a href="mailto:veerapandian1694@gmail.com">veerapandian1694@gmail.com</a></p></div>
+        <div class="card"><strong>Phone</strong><p>+91 93427 26181</p></div>
+        <div class="card"><strong>LinkedIn</strong><p><a href="https://www.linkedin.com/in/veerapandian-v-r-09a76b254/" target="_blank">linkedin.com/in/veerapandian-v-r</a></p></div>
+        <div class="card"><strong>GitHub</strong><p><a href="https://github.com/Veerapandian16" target="_blank">github.com/Veerapandian16</a></p></div>
+        <div class="card"><strong>Instagram</strong><p><a href="https://www.instagram.com/veera16.4?igsh=MXA1cGZzZXpwanlkcQ==" target="_blank">@veera16.4</a></p></div>
+        <div class="card"><strong>Location</strong><p>Tamil Nadu, India</p></div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Veerapandian V R · Designed for recruiters
+    </footer>
+
+  </div>
+</body>
+</html>
