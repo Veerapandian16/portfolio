@@ -5,74 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Veerapandian V R | Portfolio</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #0f1f24;
-      --card: rgba(17, 32, 38, 0.8);
+      --card: rgba(17, 32, 38, 0.85);
       --text: #e6f1f5;
       --muted: #9fb3bb;
       --accent: linear-gradient(135deg, #2dd4bf, #38bdf8);
-      --border: rgba(255, 255, 255, 0.08);
+      --border: rgba(255,255,255,0.08);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       background: radial-gradient(circle at top, #132a33, #020617);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
+      overscroll-behavior: none;
     }
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
+    a { color: #38bdf8; text-decoration: none; }
+
+    /* Scroll progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #2dd4bf, #38bdf8);
+      z-index: 999;
     }
+
+    header, section, footer { scroll-snap-align: start; }
 
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 2.5rem 1.25rem;
+      padding: 3rem 1.25rem;
     }
 
-    /* ---------- HERO ---------- */
+    /* HERO */
     header {
-      padding: 4rem 0 3rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
 
-    header h1 {
-      font-size: 2.8rem;
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2rem);
+      margin-bottom: 1.6rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
     }
 
-    header p {
-      margin-top: 0.8rem;
-      color: var(--muted);
-      max-width: 720px;
-    }
+    p { color: var(--muted); }
 
     .hero-actions {
-      margin-top: 2rem;
+      margin-top: 2.2rem;
       display: flex;
-      gap: 0.8rem;
+      gap: 0.9rem;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 0.65rem 1.3rem;
-      border-radius: 12px;
+      padding: 0.7rem 1.4rem;
+      border-radius: 14px;
       font-size: 0.9rem;
       border: 1px solid var(--border);
       background: transparent;
@@ -89,25 +100,15 @@
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.45);
     }
 
-    section {
-      margin-top: 4.5rem;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.4rem;
-      font-weight: 600;
-    }
-
-    /* ---------- CARDS ---------- */
+    /* Cards */
     .card {
       background: var(--card);
       backdrop-filter: blur(14px);
-      padding: 1.4rem;
-      border-radius: 18px;
+      padding: 1.6rem;
+      border-radius: 20px;
       border: 1px solid var(--border);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -117,35 +118,22 @@
       box-shadow: 0 18px 45px rgba(0,0,0,0.45);
     }
 
-    /* ---------- SKILLS ---------- */
-    .skills {
+    /* Layout grids */
+    .skills, .learning, .contact {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
+      gap: 1.3rem;
     }
 
-    .skills p {
-      margin-top: 0.4rem;
-      color: var(--muted);
-    }
-
-    /* ---------- PROJECTS ---------- */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
 
-    .project-actions {
-      margin-top: 1rem;
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
     .tags span {
       display: inline-block;
-      margin-top: 0.6rem;
+      margin-top: 0.7rem;
       margin-right: 0.4rem;
       font-size: 0.75rem;
       padding: 0.25rem 0.6rem;
@@ -155,170 +143,187 @@
       color: #7dd3fc;
     }
 
-    /* ---------- CONTACT ---------- */
-    .contact {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
+    .project-actions {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
 
-    footer {
+    /* Footer */
+    .footer {
       text-align: center;
-      margin: 5rem 0 2rem;
-      color: var(--muted);
-      font-size: 0.85rem;
+      padding: 4.5rem 0 2.5rem;
     }
 
-    /* ---------- ADVANCED SCROLL EFFECTS ---------- */
+    .footer-line {
+      width: 60px;
+      height: 2px;
+      margin: 0 auto 1.2rem;
+      background: linear-gradient(90deg, #2dd4bf, #38bdf8);
+      border-radius: 2px;
+    }
+
+    .footer-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Reveal animation */
     .reveal {
       opacity: 0;
-      transform: translateY(40px) scale(0.98);
-      transition: opacity 0.9s ease, transform 0.9s ease;
+      transform: translateY(50px) scale(0.97);
+      transition: 0.9s ease;
     }
 
     .reveal.active {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
-
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-
-    @media (max-width: 640px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-    }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- HERO -->
-    <header class="reveal">
-      <h1>Veerapandian V R</h1>
-      <p>
-        Final-year B.Tech CSE (Data Science) student focused on Artificial Intelligence,
-        Machine Learning, Computer Vision, and backend system development.
-      </p>
-      <div class="hero-actions">
-        <a class="btn primary" href="resume.pdf" target="_blank">View Resume</a>
-        <a class="btn" href="https://github.com/Veerapandian16" target="_blank">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/veerapandian-v-r-09a76b254/" target="_blank">LinkedIn</a>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="container">
+
+<header class="reveal">
+  <div>
+    <h1 id="heroText">Veerapandian V R</h1>
+    <p>Final-year B.Tech CSE (Data Science) student focused on AI, Machine Learning, Computer Vision, and backend systems.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="resume.pdf" target="_blank">View Resume</a>
+      <a class="btn" href="https://veerapandian16.github.io/portfolio/" target="_blank">Live Demo</a>
+      <a class="btn" href="https://github.com/Veerapandian16" target="_blank">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/veerapandian-v-r-09a76b254/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<section class="reveal">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="card">Python, Java, SQL</div>
+    <div class="card">Machine Learning & Model Evaluation</div>
+    <div class="card">Computer Vision (OpenCV, YOLO)</div>
+    <div class="card">Spring Boot, REST APIs, MySQL</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <div class="card">
+      <h3>AI-Driven No Parking Violation Detection</h3>
+      <p>Computer vision system to detect parking violations and automate fine management.</p>
+      <div class="tags"><span>Python</span><span>OpenCV</span><span>AI</span></div>
+      <div class="project-actions">
+        <a class="btn" href="https://github.com/Veerapandian16/AI-Driven-No-Parking-Violation-Detection-Fine-Management-System" target="_blank">GitHub</a>
       </div>
-    </header>
+    </div>
 
-    <!-- SKILLS -->
-    <section class="reveal">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="card reveal delay-1">
-          <strong>Programming</strong>
-          <p>Python, Java, SQL</p>
-        </div>
-        <div class="card reveal delay-2">
-          <strong>Machine Learning</strong>
-          <p>Scikit-learn, Model Evaluation, Classification</p>
-        </div>
-        <div class="card reveal delay-3">
-          <strong>Computer Vision</strong>
-          <p>OpenCV, YOLO, Real-time Inference</p>
-        </div>
-        <div class="card reveal delay-1">
-          <strong>Backend & Tools</strong>
-          <p>Spring Boot, REST APIs, MySQL, Git</p>
-        </div>
+    <div class="card">
+      <h3>Face Recognition System</h3>
+      <p>Real-time face recognition application using OpenCV.</p>
+      <div class="tags"><span>Python</span><span>OpenCV</span></div>
+      <div class="project-actions">
+        <a class="btn" href="https://github.com/Veerapandian16/Face-Recognition-System-using-OpenCV" target="_blank">GitHub</a>
       </div>
-    </section>
+    </div>
 
-    <!-- PROJECTS -->
-    <section class="reveal">
-      <h2>Projects</h2>
-      <div class="projects">
-
-        <div class="card reveal delay-1">
-          <h3>AI-Driven No Parking Violation Detection</h3>
-          <p>
-            Automated system using computer vision to detect parking violations and manage fines.
-          </p>
-          <div class="tags">
-            <span>Python</span><span>OpenCV</span><span>AI</span>
-          </div>
-          <div class="project-actions">
-            <a class="btn" href="https://github.com/Veerapandian16/AI-Driven-No-Parking-Violation-Detection-Fine-Management-System" target="_blank">GitHub</a>
-          </div>
-        </div>
-
-        <div class="card reveal delay-2">
-          <h3>Face Recognition System</h3>
-          <p>
-            Real-time face recognition system using OpenCV with efficient detection pipelines.
-          </p>
-          <div class="tags">
-            <span>Python</span><span>OpenCV</span>
-          </div>
-          <div class="project-actions">
-            <a class="btn" href="https://github.com/Veerapandian16/Face-Recognition-System-using-OpenCV" target="_blank">GitHub</a>
-          </div>
-        </div>
-
-        <div class="card reveal delay-3">
-          <h3>Bike Booking System</h3>
-          <p>
-            Full-stack bike rental system with backend APIs and database integration.
-          </p>
-          <div class="tags">
-            <span>Spring Boot</span><span>MySQL</span>
-          </div>
-          <div class="project-actions">
-            <a class="btn" href="https://github.com/Veerapandian16/Bike-Booking-System" target="_blank">GitHub</a>
-          </div>
-        </div>
-
+    <div class="card">
+      <h3>Bike Booking System</h3>
+      <p>Backend-driven bike rental system with REST APIs and database integration.</p>
+      <div class="tags"><span>Spring Boot</span><span>MySQL</span></div>
+      <div class="project-actions">
+        <a class="btn" href="https://github.com/Veerapandian16/Bike-Booking-System" target="_blank">GitHub</a>
       </div>
-    </section>
+    </div>
 
-    <!-- CONTACT -->
-    <section class="reveal">
-      <h2>Contact</h2>
-      <div class="contact">
-        <div class="card reveal delay-1">
-          <strong>Email</strong>
-          <p><a href="mailto:veerapandian1694@gmail.com">veerapandian1694@gmail.com</a></p>
-        </div>
-        <div class="card reveal delay-2">
-          <strong>Location</strong>
-          <p>Tamil Nadu, India</p>
-        </div>
+    <div class="card">
+      <h3>Taxi Booking System</h3>
+      <p>Python-based booking system with authentication and persistent storage.</p>
+      <div class="tags"><span>Python</span><span>SQLite</span></div>
+      <div class="project-actions">
+        <a class="btn" href="https://github.com/Veerapandian16/Taxi_Booking_System" target="_blank">GitHub</a>
       </div>
-    </section>
+    </div>
 
-    <footer class="reveal">
-      © 2026 Veerapandian V R · Built with modern web standards
-    </footer>
+    <div class="card">
+      <h3>Instant Dictionary</h3>
+      <p>Lightweight dictionary application for instant word lookup.</p>
+      <div class="tags"><span>Python</span><span>DSA</span></div>
+      <div class="project-actions">
+        <a class="btn" href="https://github.com/Veerapandian16/Instant-Dictionary" target="_blank">GitHub</a>
+      </div>
+    </div>
 
   </div>
+</section>
 
-  <!-- ADVANCED SCROLL SCRIPT -->
-  <script>
-    const reveals = document.querySelectorAll(".reveal");
+<section class="reveal">
+  <h2>Publications</h2>
+  <div class="card">
+    <p><strong>IEEE Xplore:</strong> Research publication demonstrating applied engineering research.</p>
+    <a class="btn" href="https://ieeexplore.ieee.org/document/10841621" target="_blank">View on IEEE Xplore</a>
+  </div>
+</section>
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+<section class="reveal">
+  <h2>Currently Learning</h2>
+  <div class="learning">
+    <div class="card">System design fundamentals</div>
+    <div class="card">Advanced ML evaluation techniques</div>
+    <div class="card">Scalable backend architectures</div>
+  </div>
+</section>
 
-    reveals.forEach(el => observer.observe(el));
-  </script>
+<section class="reveal">
+  <h2>Contact</h2>
+  <div class="contact">
+    <div class="card">📧 veerapandian1694@gmail.com</div>
+    <div class="card">📍 Tamil Nadu, India</div>
+  </div>
+</section>
+
+<footer class="footer reveal">
+  <div class="footer-line"></div>
+  <p class="footer-name">Veerapandian V R</p>
+  <p class="footer-note">Building quietly. Learning constantly.</p>
+</footer>
+
+</div>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById("progressBar").style.width = (scrollTop / height) * 100 + "%";
+    document.getElementById("heroText").style.transform = `translateY(${scrollTop * 0.3}px)`;
+  });
+
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
